@@ -1,6 +1,7 @@
 package com.bb.android.example.activities;
 
 import android.app.Activity;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -75,17 +76,28 @@ public class MainActivity extends Activity implements ColorChangedCallback {
     }
 
     public void showPopup(View view) {
-        View  popupView=popupWindow.getContentView();
+        final View  popupView=popupWindow.getContentView();
         popupView.findViewById(R.id.imageView1).setOnClickListener(new PopupOnClickListener(popupWindow,this));
         popupView.findViewById(R.id.imageView2).setOnClickListener(new PopupOnClickListener(popupWindow,this));
         popupView.findViewById(R.id.imageView3).setOnClickListener(new PopupOnClickListener(popupWindow,this));
         popupView.findViewById(R.id.imageView4).setOnClickListener(new PopupOnClickListener(popupWindow,this));
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.showAsDropDown(view, 50, -30);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                popupView.findViewById(R.id.imageView1).setOnClickListener(null);
+                popupView.findViewById(R.id.imageView2).setOnClickListener(null);
+                popupView.findViewById(R.id.imageView3).setOnClickListener(null);
+                popupView.findViewById(R.id.imageView4).setOnClickListener(null);
+            }
+        });
+
     }
 
     @Override
     public void onColorChanged(int color) {
-        //Toast.makeText(getBaseContext(),""+color,Toast.LENGTH_SHORT).show();
         mButton.setBackgroundColor(color);
     }
 }
