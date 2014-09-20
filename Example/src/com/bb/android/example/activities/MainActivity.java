@@ -1,25 +1,25 @@
-package com.bb.android.example;
+package com.bb.android.example.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import com.bb.android.example.R;
 import com.bb.android.example.model.Question;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyActivity extends Activity {
+public class MainActivity extends Activity {
 
     private List<Question> questions;
     private Question q;
 
-    public MyActivity() {
+    public MainActivity() {
         questions=new ArrayList<Question>();
         questions.add(new Question("true",true));
         questions.add(new Question("false",false));
@@ -47,12 +47,12 @@ public class MyActivity extends Activity {
     @OnClick(R.id.button_true)
     public void onButtonTrueClick(Button b) {
         String answer=q.isTrue()?"right":"wrong";
-        Toast.makeText(MyActivity.this,answer,Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this,answer,Toast.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.button_false)
     public void onButtonFalseClick(Button b) {
         String answer=q.isTrue()?"wrong":"right";
-        Toast.makeText(MyActivity.this,answer,Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this,answer,Toast.LENGTH_LONG).show();
     }
 }
