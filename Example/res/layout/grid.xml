@@ -1,88 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
-    android:clickable="true">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@android:style/Widget.Button.Small"
-        >
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:padding="0dp"
-            android:showDividers="none">
-
-            <ImageView
-                android:src="@android:color/holo_purple"
-                android:background="@android:color/holo_purple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:maxHeight="32dp"
-                android:maxWidth="32dp"
-                android:minHeight="32dp"
-                android:minWidth="32dp"
-                android:layout_margin="1dp"
-                android:padding="1dp"/>
-
-            <ImageView
-                android:background="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView22"
-                android:maxHeight="32dp"
-                android:maxWidth="32dp"
-                android:minHeight="32dp"
-                android:minWidth="32dp"
-                android:clickable="true"
-                android:layout_margin="1dp"
-                android:padding="0dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@android:color/holo_purple"
-                android:background="@android:color/holo_purple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView33"
-                android:maxHeight="32dp"
-                android:maxWidth="32dp"
-                android:minHeight="32dp"
-                android:minWidth="32dp"
-                android:layout_margin="1dp"
-                android:padding="1dp"/>
-
-            <ImageView
-                android:background="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView44"
-                android:maxHeight="32dp"
-                android:maxWidth="32dp"
-                android:minHeight="32dp"
-                android:minWidth="32dp"
-                android:clickable="true"
-                android:layout_margin="1dp"
-                android:padding="0dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
     <GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         style="@android:style/Widget.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,6 +12,7 @@
 
         <ImageView
             android:src="@android:color/holo_purple"
+            android:tag="@android:color/holo_purple"
             android:background="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,10 +24,12 @@
             android:layout_margin="1dp"
             android:padding="1dp"
             android:clickable="true"
-            android:focusable="true" android:onClick="color1"/>
+            android:focusable="true"
+            />
 
         <ImageView
             android:src="@android:color/holo_red_light"
+            android:tag="@android:color/holo_red_light"
             android:background="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,10 +41,11 @@
             android:layout_margin="1dp"
             android:padding="1dp"
             android:focusable="true"
-            android:clickable="true" android:onClick="color2"/>
+            android:clickable="true" />
 
         <ImageView
             android:src="@android:color/darker_gray"
+            android:tag="@android:color/darker_gray"
             android:background="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,10 +57,11 @@
             android:layout_margin="1dp"
             android:padding="1dp"
             android:clickable="true"
-            android:focusable="true" android:onClick="color3"/>
+            android:focusable="true" />
 
         <ImageView
             android:src="@android:color/holo_orange_light"
+            android:tag="@android:color/holo_orange_light"
             android:background="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,7 +73,6 @@
             android:layout_margin="1dp"
             android:padding="1dp"
             android:focusable="true"
-            android:clickable="true" android:onClick="color4"/>
+            android:clickable="true"/>
     </GridLayout>
 
-</LinearLayout>
