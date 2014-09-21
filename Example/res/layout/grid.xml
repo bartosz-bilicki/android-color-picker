@@ -13,66 +13,25 @@
         <ImageView
             android:src="@android:color/holo_purple"
             android:tag="@android:color/holo_purple"
-            android:background="@android:color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/imageView1"
-            android:maxHeight="32dp"
-            android:maxWidth="32dp"
-            android:minHeight="32dp"
-            android:minWidth="32dp"
-            android:layout_margin="1dp"
-            android:padding="1dp"
-            android:clickable="true"
-            android:focusable="true"
-            />
+            style="@style/colorPickerItem"/>
 
         <ImageView
+            android:id="@+id/imageView2"
             android:src="@android:color/holo_red_light"
             android:tag="@android:color/holo_red_light"
-            android:background="@android:color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView2"
-            android:maxHeight="32dp"
-            android:maxWidth="32dp"
-            android:minHeight="32dp"
-            android:minWidth="32dp"
-            android:layout_margin="1dp"
-            android:padding="1dp"
-            android:focusable="true"
-            android:clickable="true" />
+            style="@style/colorPickerItem" />
 
         <ImageView
+            android:id="@+id/imageView3"
             android:src="@android:color/darker_gray"
             android:tag="@android:color/darker_gray"
-            android:background="@android:color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView3"
-            android:maxHeight="32dp"
-            android:maxWidth="32dp"
-            android:minHeight="32dp"
-            android:minWidth="32dp"
-            android:layout_margin="1dp"
-            android:padding="1dp"
-            android:clickable="true"
-            android:focusable="true" />
+            style="@style/colorPickerItem" />
 
         <ImageView
+            android:id="@+id/imageView4"
             android:src="@android:color/holo_orange_light"
             android:tag="@android:color/holo_orange_light"
-            android:background="@android:color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView4"
-            android:maxHeight="32dp"
-            android:maxWidth="32dp"
-            android:minHeight="32dp"
-            android:minWidth="32dp"
-            android:layout_margin="1dp"
-            android:padding="1dp"
-            android:focusable="true"
-            android:clickable="true"/>
+            style="@style/colorPickerItem"/>
     </GridLayout>
 

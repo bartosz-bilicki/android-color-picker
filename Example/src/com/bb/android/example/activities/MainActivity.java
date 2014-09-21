@@ -3,14 +3,12 @@ package com.bb.android.example.activities;
 import android.app.Activity;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -43,7 +41,7 @@ public class MainActivity extends Activity implements ColorChangedCallback {
     @InjectView(R.id.text_question)
     TextView mTextQuestion;
 
-    PopupWindow popupWindow;
+    private PopupWindow popupWindow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +52,10 @@ public class MainActivity extends Activity implements ColorChangedCallback {
         q=questions.get(0);
         mTextQuestion.setText(q.getText());
 
+        initPopupWindow();
+    }
+
+    private void initPopupWindow(){
         LayoutInflater layoutInflater= (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = layoutInflater.inflate(R.layout.grid, null);
 
@@ -61,6 +63,22 @@ public class MainActivity extends Activity implements ColorChangedCallback {
                 popupView,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        popupView=popupWindow.getContentView();
+        ImageView imageView1 = (ImageView) popupView.findViewById(R.id.imageView1);
+        ImageView imageView2 = (ImageView) popupView.findViewById(R.id.imageView2);
+        ImageView imageView3 = (ImageView) popupView.findViewById(R.id.imageView3);
+        ImageView imageView4 = (ImageView) popupView.findViewById(R.id.imageView4);
+
+        imageView1.setOnClickListener(new PopupOnClickListener(popupWindow, this));
+        imageView2.setOnClickListener(new PopupOnClickListener(popupWindow, this));
+        imageView3.setOnClickListener(new PopupOnClickListener(popupWindow, this));
+        imageView4.setOnClickListener(new PopupOnClickListener(popupWindow, this));
+
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+
+        imageView1.performClick();
     }
 
     @OnClick(R.id.button_true)
@@ -76,28 +94,12 @@ public class MainActivity extends Activity implements ColorChangedCallback {
     }
 
     public void showPopup(View view) {
-        final View  popupView=popupWindow.getContentView();
-        popupView.findViewById(R.id.imageView1).setOnClickListener(new PopupOnClickListener(popupWindow,this));
-        popupView.findViewById(R.id.imageView2).setOnClickListener(new PopupOnClickListener(popupWindow,this));
-        popupView.findViewById(R.id.imageView3).setOnClickListener(new PopupOnClickListener(popupWindow,this));
-        popupView.findViewById(R.id.imageView4).setOnClickListener(new PopupOnClickListener(popupWindow,this));
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.showAsDropDown(view, 50, -30);
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                popupView.findViewById(R.id.imageView1).setOnClickListener(null);
-                popupView.findViewById(R.id.imageView2).setOnClickListener(null);
-                popupView.findViewById(R.id.imageView3).setOnClickListener(null);
-                popupView.findViewById(R.id.imageView4).setOnClickListener(null);
-            }
-        });
-
     }
 
     @Override
     public void onColorChanged(int color) {
+        Log.d(MainActivity.class.toString(), "onColorChanged");
         mButton.setBackgroundColor(color);
     }
 }
