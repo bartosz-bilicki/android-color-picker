@@ -65,6 +65,7 @@ public class MainActivity extends Activity implements ColorChangedCallback {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
 
         popupView=popupWindow.getContentView();
+        //popupView.findViewWithTag(android.R.color.darker_gray)
         ImageView imageView1 = (ImageView) popupView.findViewById(R.id.imageView1);
         ImageView imageView2 = (ImageView) popupView.findViewById(R.id.imageView2);
         ImageView imageView3 = (ImageView) popupView.findViewById(R.id.imageView3);
